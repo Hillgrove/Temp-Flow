@@ -1,9 +1,10 @@
 ﻿using DataAccess.DTOs;
+using DataAccess.Interfaces;
 using DataAccess.Models;
 
 namespace DataAccess.Repositories
 {
-    public class SensorDataRepository
+    public class SensorDataRepository : ISensorDataRepository
     {
         private readonly AppDbContext _context;
 
@@ -21,7 +22,7 @@ namespace DataAccess.Repositories
         }
 
 
-      public IEnumerable<SensorDataDto> GetAll()
+        public IEnumerable<SensorDataDto> GetAll()
         {
             return _context.SensorData
                 .Select(s => new SensorDataDto
@@ -57,7 +58,7 @@ namespace DataAccess.Repositories
                 _context.SensorData.RemoveRange(sensorDataToDelete);
                 return _context.SaveChanges();
             }
-            return 0; 
+            return 0;
         }
     }
 }

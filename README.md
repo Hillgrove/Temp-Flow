@@ -12,18 +12,21 @@ Temp-Flow er et IoT-baseret overvågningssystem til indeklima. Raspberry Pi-enhe
 
 ## Indholdsfortegnelse
 
-- [Funktioner](#funktioner)
-- [Teknologier](#teknologier)
-- [Arkitektur](#arkitektur)
-- [Kom i gang](#kom-i-gang)
-  - [Forudsætninger](#forudsætninger)
-  - [Installation af backend](#installation-af-backend)
-  - [Databaseopsætning](#databaseopsætning)
-  - [Opsætning af Raspberry Pi-klient](#opsætning-af-raspberry-pi-klient)
-  - [Kørsel af frontend](#kørsel-af-frontend)
-- [API-oversigt](#api-oversigt)
-- [Projektstruktur](#projektstruktur)
-- [Test](#test)
+- [Temp-Flow](#temp-flow)
+  - [Indholdsfortegnelse](#indholdsfortegnelse)
+  - [Funktioner](#funktioner)
+  - [Teknologier](#teknologier)
+  - [Arkitektur](#arkitektur)
+  - [Kom i gang](#kom-i-gang)
+    - [Forudsætninger](#forudsætninger)
+    - [Installation af backend](#installation-af-backend)
+    - [Databaseopsætning](#databaseopsætning)
+    - [Start af services](#start-af-services)
+    - [Opsætning af Raspberry Pi-klient](#opsætning-af-raspberry-pi-klient)
+    - [Kørsel af frontend](#kørsel-af-frontend)
+  - [API-oversigt](#api-oversigt)
+  - [Projektstruktur](#projektstruktur)
+  - [Test](#test)
 
 ---
 
@@ -44,16 +47,16 @@ Temp-Flow er et IoT-baseret overvågningssystem til indeklima. Raspberry Pi-enhe
 
 ## Teknologier
 
-| Komponent         | Teknologi                                        |
-|-------------------|--------------------------------------------------|
-| Backend API       | ASP.NET Core 8, C#                               |
-| Datalag           | Entity Framework Core 9, Repository-pattern      |
-| Database          | Microsoft SQL Server (MSSQL)                     |
-| UDP-server        | .NET 8 konsol-applikation                        |
-| Sensor-klient     | Python 3, Raspberry Pi Sense HAT                 |
-| Frontend          | Vue.js 3, Bootstrap 5, Axios, Chart.js           |
-| API-dokumentation | Swagger / OpenAPI (Swashbuckle)                  |
-| Test              | xUnit, Selenium WebDriver                        |
+| Komponent         | Teknologi                                   |
+| ----------------- | ------------------------------------------- |
+| Backend API       | ASP.NET Core 8, C#                          |
+| Datalag           | Entity Framework Core 9, Repository-pattern |
+| Database          | Microsoft SQL Server (MSSQL)                |
+| UDP-server        | .NET 8 konsol-applikation                   |
+| Sensor-klient     | Python 3, Raspberry Pi Sense HAT            |
+| Frontend          | Vue.js 3, Bootstrap 5, Axios, Chart.js      |
+| API-dokumentation | Swagger / OpenAPI (Swashbuckle)             |
+| Test              | xUnit, Selenium WebDriver                   |
 
 ---
 
@@ -167,25 +170,25 @@ const baseUrl = 'http://localhost:<port>/api/';
 
 ## API-oversigt
 
-| Metode   | Endpoint                              | Beskrivelse                                  |
-|----------|---------------------------------------|----------------------------------------------|
-| GET      | `/api/Rooms`                          | Hent alle rum med sensorer og data           |
-| POST     | `/api/Rooms`                          | Opret nyt rum                                |
-| GET      | `/api/Rooms/{id}`                     | Hent enkelt rum                              |
-| PUT      | `/api/Rooms/{id}`                     | Opdater rum                                  |
-| DELETE   | `/api/Rooms/{id}`                     | Slet rum                                     |
-| POST     | `/api/Rooms/{id}/addsensor/{sensorId}`| Tildel sensor til rum                        |
-| GET      | `/api/Rooms/{id}/data/recent`         | Nyeste sensordata for rum grupperet pr. time |
-| GET      | `/api/Sensors`                        | Hent alle sensorer                           |
-| GET      | `/api/Sensors/{id}`                   | Hent enkelt sensor                           |
-| GET      | `/api/Sensors/{id}/data`              | Hent alle data for sensor                    |
-| GET      | `/api/Sensors/{id}/grouped-by-hour`   | Sensordata grupperet pr. time                |
-| PUT      | `/api/Sensors/{id}`                   | Opdater sensor                               |
-| DELETE   | `/api/Sensors/{id}`                   | Slet sensor                                  |
-| GET      | `/api/SensorData`                     | Hent alle sensordata                         |
-| GET      | `/api/SensorData/{id}`                | Hent enkelt sensordata-post                  |
-| GET      | `/api/SensorData/recent/{days}`       | Hent data fra de seneste N dage              |
-| DELETE   | `/api/SensorData/older-than/{days}`   | Slet data ældre end N dage                   |
+| Metode | Endpoint                               | Beskrivelse                                  |
+| ------ | -------------------------------------- | -------------------------------------------- |
+| GET    | `/api/Rooms`                           | Hent alle rum med sensorer og data           |
+| POST   | `/api/Rooms`                           | Opret nyt rum                                |
+| GET    | `/api/Rooms/{id}`                      | Hent enkelt rum                              |
+| PUT    | `/api/Rooms/{id}`                      | Opdater rum                                  |
+| DELETE | `/api/Rooms/{id}`                      | Slet rum                                     |
+| POST   | `/api/Rooms/{id}/addsensor/{sensorId}` | Tildel sensor til rum                        |
+| GET    | `/api/Rooms/{id}/data/recent`          | Nyeste sensordata for rum grupperet pr. time |
+| GET    | `/api/Sensors`                         | Hent alle sensorer                           |
+| GET    | `/api/Sensors/{id}`                    | Hent enkelt sensor                           |
+| GET    | `/api/Sensors/{id}/data`               | Hent alle data for sensor                    |
+| GET    | `/api/Sensors/{id}/grouped-by-hour`    | Sensordata grupperet pr. time                |
+| PUT    | `/api/Sensors/{id}`                    | Opdater sensor                               |
+| DELETE | `/api/Sensors/{id}`                    | Slet sensor                                  |
+| GET    | `/api/SensorData`                      | Hent alle sensordata                         |
+| GET    | `/api/SensorData/{id}`                 | Hent enkelt sensordata-post                  |
+| GET    | `/api/SensorData/recent/{days}`        | Hent data fra de seneste N dage              |
+| DELETE | `/api/SensorData/older-than/{days}`    | Slet data ældre end N dage                   |
 
 ---
 

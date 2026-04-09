@@ -1,6 +1,6 @@
 ﻿using DataAccess.DTOs;
+using DataAccess.Interfaces;
 using DataAccess.Models;
-using DataAccess.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace REST_API.Controllers
@@ -9,9 +9,9 @@ namespace REST_API.Controllers
     [ApiController]
     public class SensorDataController : ControllerBase
     {
-        private readonly SensorDataRepository _repository;
+        private readonly ISensorDataRepository _repository;
 
-        public SensorDataController(SensorDataRepository repository)
+        public SensorDataController(ISensorDataRepository repository)
         {
             _repository = repository;
         }
