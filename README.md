@@ -1,4 +1,4 @@
-# Temp-Flow
+# 🌡️ Temp-Flow
 
 ![.NET](https://img.shields.io/badge/.NET-8.0-512BD4?logo=dotnet)
 ![EF Core](https://img.shields.io/badge/Entity_Framework_Core-9.0-512BD4?logo=dotnet)
@@ -12,7 +12,7 @@ Temp-Flow er et IoT-baseret overvågningssystem til indeklima. Raspberry Pi-enhe
 
 ## Indholdsfortegnelse
 
-- [Temp-Flow](#temp-flow)
+- [🌡️ Temp-Flow](#️-temp-flow)
   - [Indholdsfortegnelse](#indholdsfortegnelse)
   - [Funktioner](#funktioner)
   - [Teknologier](#teknologier)
@@ -170,25 +170,35 @@ const baseUrl = 'http://localhost:<port>/api/';
 
 ## API-oversigt
 
-| Metode | Endpoint                               | Beskrivelse                                  |
-| ------ | -------------------------------------- | -------------------------------------------- |
-| GET    | `/api/Rooms`                           | Hent alle rum med sensorer og data           |
-| POST   | `/api/Rooms`                           | Opret nyt rum                                |
-| GET    | `/api/Rooms/{id}`                      | Hent enkelt rum                              |
-| PUT    | `/api/Rooms/{id}`                      | Opdater rum                                  |
-| DELETE | `/api/Rooms/{id}`                      | Slet rum                                     |
-| POST   | `/api/Rooms/{id}/addsensor/{sensorId}` | Tildel sensor til rum                        |
-| GET    | `/api/Rooms/{id}/data/recent`          | Nyeste sensordata for rum grupperet pr. time |
-| GET    | `/api/Sensors`                         | Hent alle sensorer                           |
-| GET    | `/api/Sensors/{id}`                    | Hent enkelt sensor                           |
-| GET    | `/api/Sensors/{id}/data`               | Hent alle data for sensor                    |
-| GET    | `/api/Sensors/{id}/grouped-by-hour`    | Sensordata grupperet pr. time                |
-| PUT    | `/api/Sensors/{id}`                    | Opdater sensor                               |
-| DELETE | `/api/Sensors/{id}`                    | Slet sensor                                  |
-| GET    | `/api/SensorData`                      | Hent alle sensordata                         |
-| GET    | `/api/SensorData/{id}`                 | Hent enkelt sensordata-post                  |
-| GET    | `/api/SensorData/recent/{days}`        | Hent data fra de seneste N dage              |
-| DELETE | `/api/SensorData/older-than/{days}`    | Slet data ældre end N dage                   |
+<details>
+<summary>Vis alle endpoints</summary>
+
+<table>
+  <thead>
+    <tr><th>Metode</th><th>Endpoint</th><th>Beskrivelse</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>GET</td><td><code>/api/Rooms</code></td><td>Hent alle rum med sensorer og data</td></tr>
+    <tr><td>POST</td><td><code>/api/Rooms</code></td><td>Opret nyt rum</td></tr>
+    <tr><td>GET</td><td><code>/api/Rooms/{id}</code></td><td>Hent enkelt rum</td></tr>
+    <tr><td>PUT</td><td><code>/api/Rooms/{id}</code></td><td>Opdater rum</td></tr>
+    <tr><td>DELETE</td><td><code>/api/Rooms/{id}</code></td><td>Slet rum</td></tr>
+    <tr><td>POST</td><td><code>/api/Rooms/{id}/addsensor/{sensorId}</code></td><td>Tildel sensor til rum</td></tr>
+    <tr><td>GET</td><td><code>/api/Rooms/{id}/data/recent</code></td><td>Nyeste sensordata for rum grupperet pr. time</td></tr>
+    <tr><td>GET</td><td><code>/api/Sensors</code></td><td>Hent alle sensorer</td></tr>
+    <tr><td>GET</td><td><code>/api/Sensors/{id}</code></td><td>Hent enkelt sensor</td></tr>
+    <tr><td>GET</td><td><code>/api/Sensors/{id}/data</code></td><td>Hent alle data for sensor</td></tr>
+    <tr><td>GET</td><td><code>/api/Sensors/{id}/grouped-by-hour</code></td><td>Sensordata grupperet pr. time</td></tr>
+    <tr><td>PUT</td><td><code>/api/Sensors/{id}</code></td><td>Opdater sensor</td></tr>
+    <tr><td>DELETE</td><td><code>/api/Sensors/{id}</code></td><td>Slet sensor</td></tr>
+    <tr><td>GET</td><td><code>/api/SensorData</code></td><td>Hent alle sensordata</td></tr>
+    <tr><td>GET</td><td><code>/api/SensorData/{id}</code></td><td>Hent enkelt sensordata-post</td></tr>
+    <tr><td>GET</td><td><code>/api/SensorData/recent/{days}</code></td><td>Hent data fra de seneste N dage</td></tr>
+    <tr><td>DELETE</td><td><code>/api/SensorData/older-than/{days}</code></td><td>Slet data ældre end N dage</td></tr>
+  </tbody>
+</table>
+
+</details>
 
 ---
 
