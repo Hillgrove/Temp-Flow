@@ -12,7 +12,7 @@ Temp-Flow er et IoT-baseret overvågningssystem til indeklima. Raspberry Pi-enhe
 
 ## Indholdsfortegnelse
 
-- [🌡️ Temp-Flow](#️-temp-flow)
+- [Temp-Flow](#️-temp-flow)
   - [Indholdsfortegnelse](#indholdsfortegnelse)
   - [Funktioner](#funktioner)
   - [Teknologier](#teknologier)
